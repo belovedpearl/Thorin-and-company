@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+    {{ company[1]["name"] }}
     <h2>{{ page_title }}</h2>
     <p>
         The formation of the group grew out of a meeting Gandalf had with Thorin in Bree which kindled Thorin's interest in
@@ -10,25 +11,22 @@
 		action. The superstitious Dwarves also considered thirteen to be an unlucky number, and as Gandalf had planned to
 		leave on other business, welcomed a fourteenth to fill into their party.
     </p>
-
+     
+    {% for member in company %}
     <div class="row featurette">
         <div class="col-md-7">
-            <h3>Thorin Oakenshield</h3>
+            <h3>{{ member.name }}</h3>
 			<p>
-				In the year TA 2746, Thorin II was born to Dwarven prince Thráin II in the mountain city of The Lonely Mountain.
-				Early in his youth, he and the other Dwarves of the Lonely Mountain were forced to flee by the dragon Smaug in TA
-				2770. While in exile, he quickly grew to become a capable warrior. This was demonstrated when he participated in the
-				Battle of Azanulbizar in TA 2799. He marched with one of the Dwarven armies beneath the East-gate of Moria. At some
-				point in the fighting, his shield broke, and using an oaken tree branch found on the floor as a shield, he gained
-				the epithet "Oakenshield," which would remain with him even in death.
+				{{ member.description }}
 			</p>
         </div>
         <div class="col-md-5">
-            <img src="https://vignette.wikia.nocookie.net/lotr/images/3/3f/ThorinBIG.jpg" alt="">
+            <img src= "{{ member.image_source }}" alt="" class="featurette-image image-responsive">
         </div>
     </div>
-
-    <div class="row featurette">
+    <hr class="featurette-divider">
+    {% endfor %}
+    <!-- <div class="row featurette">
         <div class="col-md-5">
             <img src="https://vignette.wikia.nocookie.net/lotr/images/b/b4/The-Hobbit-Fili-and-Kili.jpg" alt="">
         </div>
@@ -196,8 +194,8 @@
             </p>
         </div>
         <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/4/47/Gandalf_by_Damiani.png" alt="">
+            <img src="https://static.wikia.nocookie.net/lotr/images/4/47/Gandalf_by_Damiani.png" alt=""> 
         </div>
-    </div>
+    </div> -->
 
 {% endblock %}
